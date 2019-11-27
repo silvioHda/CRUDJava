@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.silviohermida.app;
+package com.silvioIgnacio.app;
 
-import com.silviohermida.jdbc.Database;
+import com.silvioIgnacio.jdbc.Database;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,47 +20,51 @@ public class CambiarContraseña extends javax.swing.JFrame {
     public CambiarContraseña() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Conectado como: " + Database.getUsuarioActual().getNombre());
-
+        this.setTitle("Conectado como: "+
+                Database.getUsuarioActual().getNombre());
     }
-
-    public void cambiar() {
-        char[] pass = this.campoActual.getPassword();
+        
+    public void cambiar(){
+        char[] pass = jPasswordField1.getPassword();
         String password = "";
-        char[] newPass = this.campoNueva.getPassword();
+        char[] newPass = jPasswordField2.getPassword();
         String newPassword = "";
-        char[] secondPass = this.campoRepetir.getPassword();
+        char[] secondPass = jPasswordField3.getPassword();
         String secondPassword = "";
-
         for (int i = 0; i < pass.length; i++) {
-            password = password + pass[i];
+            password+=pass[i];
         }
         for (int i = 0; i < newPass.length; i++) {
-            newPassword = newPassword + newPass[i];
+            newPassword+=newPass[i];
         }
         for (int i = 0; i < secondPass.length; i++) {
-            secondPassword = secondPassword + secondPass[i];
+            secondPassword+=secondPass[i];
         }
-
         if (newPassword.equals(secondPassword)) {
+            
             try {
-                int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea Confirmar Cambio? ", "Confirmación", JOptionPane.YES_NO_OPTION);
-                if (respuesta == 0) {
-                    Database.cambiarContraseña(password, newPassword);
-                    this.dispose();
-                } else {
-                    this.campoActual.setText("");
-                    this.campoNueva.setText("");
-                    this.campoRepetir.setText("");
-
+                
+               int respuesta= JOptionPane.showConfirmDialog(null, 
+                       "¿Desea confirmar cambio?", "Confirmacion",
+                       JOptionPane.YES_NO_OPTION);
+                if (respuesta==0) {
+                  Database.CambiarContraseña(password, newPassword);
+                  this.dispose();
+                }else{
+                this.jPasswordField1.setText("");
+                this.jPasswordField2.setText("");
+                this.jPasswordField3.setText("");
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Contraseña Incorrecta " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, 
+                        "Contraseña Incorrecta","Error",
+                        JOptionPane.ERROR_MESSAGE);
+                System.out.println(e.getMessage());
             }
-
+            
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,58 +74,119 @@ public class CambiarContraseña extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        etiquetaActual = new javax.swing.JLabel();
-        campoActual = new javax.swing.JPasswordField();
-        etiquetaNueva = new javax.swing.JLabel();
-        campoNueva = new javax.swing.JPasswordField();
-        etiquetaRepetir = new javax.swing.JLabel();
-        campoRepetir = new javax.swing.JPasswordField();
-        etiquetaVcia = new javax.swing.JLabel();
-        botonAceptar = new javax.swing.JButton();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        jPasswordField2 = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jPasswordField3 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout(4, 2));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        etiquetaActual.setText("Contraseña Actual");
-        getContentPane().add(etiquetaActual);
-        getContentPane().add(campoActual);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel1.setText("Contraseña Actual");
 
-        etiquetaNueva.setText("Nueva Contraseña");
-        getContentPane().add(etiquetaNueva);
-        getContentPane().add(campoNueva);
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setText("Nueva Contraseña");
 
-        etiquetaRepetir.setText("Repita Contraseña");
-        getContentPane().add(etiquetaRepetir);
-        getContentPane().add(campoRepetir);
-        getContentPane().add(etiquetaVcia);
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setText("Repetir Contraseña");
 
-        botonAceptar.setText("Aceptar");
-        botonAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoBotonAceptar(evt);
+        jPasswordField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPasswordField3KeyTyped(evt);
             }
         });
-        getContentPane().add(botonAceptar);
+
+        jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPasswordField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPasswordField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPasswordField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jPasswordField2)
+                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addComponent(jButton1)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void eventoBotonAceptar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventoBotonAceptar
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cambiar();
-    }//GEN-LAST:event_eventoBotonAceptar
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField3KeyTyped
+        cambiar();
+    }//GEN-LAST:event_jPasswordField3KeyTyped
 
     /**
      * @param args the command line arguments
      */
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonAceptar;
-    private javax.swing.JPasswordField campoActual;
-    private javax.swing.JPasswordField campoNueva;
-    private javax.swing.JPasswordField campoRepetir;
-    private javax.swing.JLabel etiquetaActual;
-    private javax.swing.JLabel etiquetaNueva;
-    private javax.swing.JLabel etiquetaRepetir;
-    private javax.swing.JLabel etiquetaVcia;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JPasswordField jPasswordField3;
     // End of variables declaration//GEN-END:variables
 }

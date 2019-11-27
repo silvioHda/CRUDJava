@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.silviohermida.app;
+package com.silvioIgnacio.app;
 
 /**
  *
@@ -16,7 +16,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-        
     }
 
     /**
@@ -28,124 +27,148 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelNombre = new javax.swing.JPanel();
-        etiquetaLiverpool = new javax.swing.JLabel();
-        barraMenu = new javax.swing.JMenuBar();
-        menuUsuario = new javax.swing.JMenu();
-        opcionBuscar = new javax.swing.JMenuItem();
-        opcionActualizar = new javax.swing.JMenuItem();
-        opcionBorrar = new javax.swing.JMenuItem();
-        opcionRegistrar = new javax.swing.JMenuItem();
-        opcionContraseña = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+
+        jMenuItem3.setText("jMenuItem3");
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(51, 0, 255));
-        setLocation(new java.awt.Point(100, 100));
-        setMinimumSize(new java.awt.Dimension(500, 500));
 
-        panelNombre.setForeground(new java.awt.Color(0, 0, 255));
-        panelNombre.setLayout(new java.awt.GridLayout(1, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 204));
+        jLabel1.setText("Liverpool");
 
-        etiquetaLiverpool.setForeground(new java.awt.Color(204, 0, 204));
-        etiquetaLiverpool.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiquetaLiverpool.setText("LIVERPOOL");
-        etiquetaLiverpool.setMaximumSize(new java.awt.Dimension(300, 300));
-        etiquetaLiverpool.setMinimumSize(new java.awt.Dimension(300, 300));
-        panelNombre.add(etiquetaLiverpool);
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        getContentPane().add(panelNombre, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
 
-        barraMenu.setForeground(java.awt.Color.cyan);
+        jMenu1.setText("Usuario");
 
-        menuUsuario.setText("Usuario");
-
-        opcionBuscar.setText("Buscar");
-        opcionBuscar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Buscar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcionBuscarActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        menuUsuario.add(opcionBuscar);
+        jMenu1.add(jMenuItem1);
 
-        opcionActualizar.setText("Actualizar");
-        opcionActualizar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("Actualizar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcionActualizarActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        menuUsuario.add(opcionActualizar);
+        jMenu1.add(jMenuItem2);
 
-        opcionBorrar.setText("Borrar");
-        opcionBorrar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setText("Borrar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcionBorrarActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
-        menuUsuario.add(opcionBorrar);
+        jMenu1.add(jMenuItem4);
 
-        opcionRegistrar.setText("Registrar");
-        opcionRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem6.setText("Registrar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcionRegistrarActionPerformed(evt);
+                jMenuItem6ActionPerformed(evt);
             }
         });
-        menuUsuario.add(opcionRegistrar);
+        jMenu1.add(jMenuItem6);
 
-        opcionContraseña.setText("Cambiar Contraseña");
-        opcionContraseña.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem7.setText("Cambiar Contraseña");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcionContraseñaActionPerformed(evt);
+                jMenuItem7ActionPerformed(evt);
             }
         });
-        menuUsuario.add(opcionContraseña);
+        jMenu1.add(jMenuItem7);
 
-        barraMenu.add(menuUsuario);
+        jMenuBar1.add(jMenu1);
 
-        setJMenuBar(barraMenu);
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void opcionBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionBuscarActionPerformed
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        RegistrarUsuario registrar = new RegistrarUsuario();
+        registrar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Buscar buscar = new Buscar();
         buscar.setVisible(true);
-    }//GEN-LAST:event_opcionBuscarActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void opcionActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionActualizarActionPerformed
-        Actualizar actualizar = new Actualizar();
-        actualizar.setVisible(true);
-    }//GEN-LAST:event_opcionActualizarActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        BorrarRegistro borrarRegistro = new BorrarRegistro();
+        borrarRegistro.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void opcionBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionBorrarActionPerformed
-        Borrar borrar = new Borrar();
-        borrar.setVisible(true);
-    }//GEN-LAST:event_opcionBorrarActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ActualizarRegistro actualizarRegistro = new ActualizarRegistro();
+        actualizarRegistro.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void opcionRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistrarActionPerformed
-        Registrar registrar = new Registrar();
-        registrar.setVisible(true);
-    }//GEN-LAST:event_opcionRegistrarActionPerformed
-
-    private void opcionContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionContraseñaActionPerformed
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         CambiarContraseña cambiar = new CambiarContraseña();
         cambiar.setVisible(true);
-        
-    }//GEN-LAST:event_opcionContraseñaActionPerformed
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar barraMenu;
-    private javax.swing.JLabel etiquetaLiverpool;
-    private javax.swing.JMenu menuUsuario;
-    private javax.swing.JMenuItem opcionActualizar;
-    private javax.swing.JMenuItem opcionBorrar;
-    private javax.swing.JMenuItem opcionBuscar;
-    private javax.swing.JMenuItem opcionContraseña;
-    private javax.swing.JMenuItem opcionRegistrar;
-    private javax.swing.JPanel panelNombre;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
 }

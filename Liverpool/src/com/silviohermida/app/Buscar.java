@@ -1,12 +1,15 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.silviohermida.app;
+package com.silvioIgnacio.app;
 
-import com.silviohermida.jdbc.Database;
-import com.silviohermida.pojos.Usuario;
+import com.silvioIgnacio.jdbc.Database;
+import com.silvioIgnacio.pojos.Usuario;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -20,33 +23,26 @@ public class Buscar extends javax.swing.JFrame {
      */
     public Buscar() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Conectado como "+Database.getUsuarioActual().getNombre());
-        
     }
-    
     public void buscar(){
-        String ID = this.campoBuscar.getText();
+       String ID = jTextField1.getText();
         Usuario usuario;
         
-        try{
+        try {
             usuario = Database.buscarUsuario(ID);
-            if(usuario!=null){
-                this.resultadoID.setText(""+usuario.getIdUsuario());
-                this.resultadoNombre.setText(usuario.getNombre());
-                this.resultadoApellidos.setText(usuario.getApellidos());
-                this.resultadoNacimeinto.setText(usuario.getFechaNacimiento());
-                this.resultadoRegistro.setText(usuario.getRegistro());
-                
+            if (usuario!=null) {
+                jLabel2.setText(""+usuario.getIdUsuario());
+                jLabel3.setText(usuario.getNombre());
+                jLabel4.setText(usuario.getApellidos());
+                jLabel5.setText(usuario.getFechaNacimiento());
+                jLabel6.setText(usuario.getRegistro());
             }
-        }catch(Exception e){
-            JOptionPane.showConfirmDialog(null, "ID incorrecto "+e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "ID Incorrecto","Error",
+                   JOptionPane.ERROR_MESSAGE);
         }
+        
     }
-    
-   
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,101 +52,211 @@ public class Buscar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelNorte = new javax.swing.JPanel();
-        etiquetaBuscar = new javax.swing.JLabel();
-        campoBuscar = new javax.swing.JTextField();
-        botonBuscar = new javax.swing.JButton();
-        panelCentro = new javax.swing.JPanel();
-        etiquetaID = new javax.swing.JLabel();
-        resultadoID = new javax.swing.JLabel();
-        etiquetaNombre = new javax.swing.JLabel();
-        resultadoNombre = new javax.swing.JLabel();
-        etiquetaApellidos = new javax.swing.JLabel();
-        resultadoApellidos = new javax.swing.JLabel();
-        etiquetaNacimiento = new javax.swing.JLabel();
-        resultadoNacimeinto = new javax.swing.JLabel();
-        etiquetaRegistro = new javax.swing.JLabel();
-        resultadoRegistro = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        etiquetaBuscar.setText("ID");
-        panelNorte.add(etiquetaBuscar);
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        campoBuscar.setColumns(10);
-        panelNorte.add(campoBuscar);
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        botonBuscar.setText("Buscar");
-        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventoBotonBuscar(evt);
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("ID");
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
             }
         });
-        panelNorte.add(botonBuscar);
 
-        getContentPane().add(panelNorte, java.awt.BorderLayout.PAGE_START);
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        panelCentro.setLayout(new java.awt.GridLayout(5, 2));
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
 
-        etiquetaID.setText("ID");
-        panelCentro.add(etiquetaID);
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setText("ID");
 
-        resultadoID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        panelCentro.add(resultadoID);
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setText("Nombre");
 
-        etiquetaNombre.setText("Nombre");
-        panelCentro.add(etiquetaNombre);
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel9.setText("Apellidos");
 
-        resultadoNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        panelCentro.add(resultadoNombre);
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel10.setText("Fecha de Nacimiento");
 
-        etiquetaApellidos.setText("Apellidos");
-        panelCentro.add(etiquetaApellidos);
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel11.setText("Registro");
 
-        resultadoApellidos.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        panelCentro.add(resultadoApellidos);
+        jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        etiquetaNacimiento.setText("Fecha de Nacimiento");
-        panelCentro.add(etiquetaNacimiento);
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(28, 28, 28))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
-        resultadoNacimeinto.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        panelCentro.add(resultadoNacimeinto);
-
-        etiquetaRegistro.setText("Fecha de Registro");
-        panelCentro.add(etiquetaRegistro);
-
-        resultadoRegistro.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        panelCentro.add(resultadoRegistro);
-
-        getContentPane().add(panelCentro, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void eventoBotonBuscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventoBotonBuscar
-       buscar();
-    }//GEN-LAST:event_eventoBotonBuscar
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        
+    }//GEN-LAST:event_jButton1KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        buscar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+  
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+      if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            buscar();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments
      */
+   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonBuscar;
-    private javax.swing.JTextField campoBuscar;
-    private javax.swing.JLabel etiquetaApellidos;
-    private javax.swing.JLabel etiquetaBuscar;
-    private javax.swing.JLabel etiquetaID;
-    private javax.swing.JLabel etiquetaNacimiento;
-    private javax.swing.JLabel etiquetaNombre;
-    private javax.swing.JLabel etiquetaRegistro;
-    private javax.swing.JPanel panelCentro;
-    private javax.swing.JPanel panelNorte;
-    private javax.swing.JLabel resultadoApellidos;
-    private javax.swing.JLabel resultadoID;
-    private javax.swing.JLabel resultadoNacimeinto;
-    private javax.swing.JLabel resultadoNombre;
-    private javax.swing.JLabel resultadoRegistro;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

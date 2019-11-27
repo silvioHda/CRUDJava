@@ -1,12 +1,14 @@
-
-
-package com.silviohermida.pojos;
+package com.silvioIgnacio.pojos;
 
 /**
  *
- * @author hp, Silvio Hermida
+ * @author Iván Ignacio
  */
 public class Usuario {
+    
+    /**
+     * Atributos de la clase Usuario
+     */
     private int idUsuario;
     private String nombre;
     private String apellidos;
@@ -14,10 +16,15 @@ public class Usuario {
     private String fechaNacimiento;
     private String registro;
 
+    /**
+     * Constructores de la clase Usuario
+     */
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellidos, String password, String fechaNacimiento, String registro) {
+    public Usuario(int idUsuario, String nombre, 
+            String apellidos, String password, 
+            String fechaNacimiento, String registro) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -26,7 +33,8 @@ public class Usuario {
         this.registro = registro;
     }
 
-    public Usuario(String nombre, String password, String fechaNacimiento) {
+    public Usuario(String nombre, String password,
+            String fechaNacimiento) {
         this.nombre = nombre;
         this.password = password;
         this.fechaNacimiento = fechaNacimiento;
@@ -79,7 +87,5 @@ public class Usuario {
     public void setRegistro(String registro) {
         this.registro = registro;
     }
-    
-    
     
 }
